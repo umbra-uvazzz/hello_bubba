@@ -9,7 +9,7 @@
 body {
     height: 100vh;
     overflow: hidden;
-    cursor: pointer;
+    cursor: none;
 
     /* Glossy blended aurora background */
     background:
@@ -168,3 +168,4 @@ p {
     opacity: 1;
     transform: translateY(0);
 }
+
