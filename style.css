@@ -11,7 +11,7 @@ body {
     overflow: hidden;
     cursor: pointer;
 
-    /* Blended glossy background */
+    /* Glossy blended aurora background */
     background:
         radial-gradient(60% 60% at 15% 25%, rgba(170,210,255,0.85), transparent 70%),
         radial-gradient(65% 65% at 85% 30%, rgba(200,120,255,0.85), transparent 72%),
@@ -41,11 +41,10 @@ body {
     bottom: -250px;
     border-radius: 50%;
     background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
     animation: floatUp linear infinite;
 }
 
-/* Individual shape settings */
 .shapes span:nth-child(1){ left:10%; width:180px; height:180px; animation-duration:22s; }
 .shapes span:nth-child(2){ left:30%; width:260px; height:260px; animation-duration:28s; animation-delay:-10s; }
 .shapes span:nth-child(3){ left:50%; width:140px; height:140px; animation-duration:18s; animation-delay:-6s; }
@@ -99,38 +98,48 @@ h1, p {
 }
 
 h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 16px;
 }
 
 p {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     line-height: 1.6;
 }
 
-/* ───────── Photo Slide ───────── */
+/* ───────── Photo Slide (Large Focus) ───────── */
 .photo-slide {
-    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
 }
 
 .photo-frame {
     display: flex;
-    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
+/* Large, cinematic image */
 .photo-frame img {
-    width: 1080px;
-    height: 1920px;
+    width: min(85vw, 720px);
+    height: auto;
+    max-height: 85vh;
     object-fit: cover;
-    padding: 14px;
-    border-radius: 24px;
 
-    background: linear-gradient(135deg, rgba(255,255,255,0.6), rgba(255,255,255,0.2));
-/*    border: 3px solid rgba(255,215,0,0.8);*/
+    padding: 10px;
+    border-radius: 26px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.65),
+        rgba(255,255,255,0.25)
+    );
 
     box-shadow:
-        0 25px 50px rgba(0,0,0,0.25),
-        0 0 25px rgba(255,215,0,0.6);
+        0 30px 60px rgba(0,0,0,0.35),
+        0 0 30px rgba(255,215,0,0.5);
 
     opacity: 0;
     transform: scale(0.95);
@@ -146,8 +155,10 @@ p {
 .slide.show .photo-frame img:nth-child(2){ transition-delay:0.4s; }
 .slide.show .photo-frame img:nth-child(3){ transition-delay:0.6s; }
 
+/* ───────── Caption ───────── */
 .caption {
     font-size: 1.2rem;
+    color: white;
     opacity: 0;
     transform: translateY(10px);
     transition: opacity 1s ease, transform 1s ease;
@@ -157,4 +168,3 @@ p {
     opacity: 1;
     transform: translateY(0);
 }
-
